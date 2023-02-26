@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pers.ztcly.andesitedb.modules.mall.entity.mapper.UserMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="pers.ztcly.andesitedb.modules.mall.entity.UserEntity">
+        <id column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="password" property="password" />
+        <result column="nickname" property="nickname" />
+        <result column="avater" property="avater" />
+        <result column="phoneNumber" property="phoneNumber" />
+        <result column="email" property="email" />
+        <result column="permissionLevel" property="permissionLevel" />
+        <result column="isDeleted" property="isDeleted" />
+        <result column="addTime" property="addTime" />
+        <result column="updateTime" property="updateTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, name, password, nickname, avater, phoneNumber, email, permissionLevel, isDeleted, addTime, updateTime
+    </sql>
+    <select id="selectByName" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from tbl_user
+        where
+        name = #{name,jdbcType=VARCHAR}
+    </select>
+    <select id="selectById" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from tbl_user
+        where
+        id = #{id,jdbcType=NUMERIC}
+    </select>
+
+</mapper>

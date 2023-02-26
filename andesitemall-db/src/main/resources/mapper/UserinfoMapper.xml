@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pers.ztcly.andesitedb.modules.mall.entity.mapper.UserinfoMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="pers.ztcly.andesitedb.modules.mall.entity.UserinfoEntity">
+        <id column="id" property="id" />
+        <result column="birthday" property="birthday" />
+        <result column="lastLoginTime" property="lastLoginTime" />
+        <result column="lastLoginIP" property="lastLoginIP" />
+        <result column="gender" property="gender" />
+        <result column="wxid" property="wxid" />
+        <result column="isDeleted" property="isDeleted" />
+        <result column="addTime" property="addTime" />
+        <result column="updateTime" property="updateTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, birthday, lastLoginTime, lastLoginIP, gender, wxid, isDeleted, addTime, updateTime
+    </sql>
+    <select id="selectById" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from tbl_userinfo
+        where
+        id = #{id,jdbcType=NUMERIC}
+    </select>
+
+</mapper>
