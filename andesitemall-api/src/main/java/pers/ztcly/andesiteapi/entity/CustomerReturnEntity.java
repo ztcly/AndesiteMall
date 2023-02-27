@@ -8,7 +8,7 @@ import pers.ztcly.andesitedb.modules.mall.entity.UserEntity;
  * @date 2023-02-25 16:58
  * @description
  **/
-public class LoginReturnEntity {
+public class CustomerReturnEntity {
     private UserEntity userEntity;
     private CustomerServiceErrorCode customerServiceErrorCode;
 
@@ -28,7 +28,7 @@ public class LoginReturnEntity {
         this.customerServiceErrorCode = customerServiceErrorCode;
     }
 
-    public LoginReturnEntity(UserEntity userEntity, CustomerServiceErrorCode customerServiceErrorCode) {
+    public CustomerReturnEntity(UserEntity userEntity, CustomerServiceErrorCode customerServiceErrorCode) {
         this.userEntity = userEntity;
         this.customerServiceErrorCode = customerServiceErrorCode;
     }
