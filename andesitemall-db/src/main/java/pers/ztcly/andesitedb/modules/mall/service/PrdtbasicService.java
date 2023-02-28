@@ -1,5 +1,6 @@
 package pers.ztcly.andesitedb.modules.mall.service;
 
+import org.springframework.stereotype.Service;
 import pers.ztcly.andesitedb.modules.mall.entity.PrdtbasicEntity;
 import com.baomidou.mybatisplus.extension.service.IService;
 
@@ -11,6 +12,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @author ztcly
  * @since 2023-02-23
  */
+
+@Service
 public interface PrdtbasicService extends IService<PrdtbasicEntity> {
 
 }
