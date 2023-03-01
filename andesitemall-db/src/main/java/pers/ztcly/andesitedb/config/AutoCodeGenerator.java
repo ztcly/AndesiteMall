@@ -21,7 +21,7 @@ public class AutoCodeGenerator {
     public static void main(String[] args) {
         // 1、数据源配置
         DataSourceConfig.Builder datasourceBuilder = new DataSourceConfig.Builder(
-                "jdbc:mysql://localhost:3306/andesitemall?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&serverTimezone=UTC",
+                "jdbc:mysql://localhost:3306/andesitemall?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&serverTimezone=UTC",
                 "andesitemall",
                 "andesitemallDefault"
         );
@@ -68,7 +68,7 @@ public class AutoCodeGenerator {
             // 设置数据库表名称. 如果不设置，则会将数据库中所有表都生成。（注意：需要与数据库中表名称一致，前缀也需添加）
             // ===========3.手动修改设置。===========
             builder.addTablePrefix("tbl_")// 过滤表前缀，生成的类名会去掉这个前缀
-
+                    .addInclude("tbl_usercart")
                     // 第一阶段
                     // 是否生成 entity：是
                     .entityBuilder()
@@ -81,7 +81,7 @@ public class AutoCodeGenerator {
                     // 设置主键Id生成策略，设置为默认的雪花算法(ASSIGN_ID)
                     .idType(IdType.ASSIGN_ID)
                     // 逻辑删除字段名。（与数据库中字段对应）
-                    .logicDeleteColumnName("is_delete")
+                    .logicDeleteColumnName("isDelete")
                     // 逻辑删除属性名。（定义在实体中的属性）。 会在生成的实体类的字段上，添加注解：@TableLogic
                     .logicDeletePropertyName("isDelete")
                     // 会在实体类的该字段上追加注解[@TableField(value = "create_time", fill = FieldFill.INSERT)]

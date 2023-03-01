@@ -11,6 +11,9 @@ public enum ApiServiceErrorCode {
     ///产品服务//////////
     ProductBasicNotExist(31,"产品基础信息不存在"),
     ProductSepcNotExist(32,"产品规格规格信息不存在"),
+    ProductNotExist(33,"产品信息不存在"),
+    CartIsEmpty(34,"购物车为空"),
+
 
 
     ;
@@ -18,7 +21,7 @@ public enum ApiServiceErrorCode {
     private final String msg;
     private final int code;
 
-    private ApiServiceErrorCode(int code, String msg){
+    ApiServiceErrorCode(int code, String msg){
         this.code = code;
         this.msg = msg;
     }
